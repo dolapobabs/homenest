@@ -9,6 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_screenutil: ^5.9.1
+  flutter_svg: ^2.0.10+1
+  flutter_animate: ^4.5.0
+  flutter_staggered_grid_view: ^0.7.0
 
 dev_dependencies:
   flutter_test:
@@ -18,3 +22,16 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
+  fonts:
+    - family: Euclid-Circular
+      fonts:
+        - asset: assets/fonts/Euclid-Circular-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Euclid-Circular-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Euclid-Circular-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Euclid-Circular-Regular.ttf
+          weight: 400
