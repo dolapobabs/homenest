@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,12 +10,6 @@ import 'presentation/widgets/custom_nav_bar.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  // SystemChrome.setSystemUIOverlayStyle(
-  //   const SystemUiOverlayStyle(
-  //     // statusBarColor: Colors.white,
-  //     systemNavigationBarColor: Colors.white,
-  //   ),
-  // );
   runApp(const MainApp());
 }
 
@@ -36,7 +31,7 @@ class MainApp extends StatelessWidget {
           // You can use the library anywhere in the app even in theme
           theme: ThemeData.light().copyWith(
               scaffoldBackgroundColor: Colors.transparent,
-              canvasColor: Colors.white),
+              canvasColor: Colors.transparent),
           home: child,
         );
       },

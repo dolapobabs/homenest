@@ -216,8 +216,8 @@ class _MapPageState extends State<MapPage> {
   @override
   void initState() {
     // initMarkers();
-    super.initState();
     _generateRandomMarkers();
+    super.initState();
   }
 
   Future<void> _generateRandomMarkers() async {
@@ -276,6 +276,7 @@ class _MapPageState extends State<MapPage> {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
           statusBarBrightness: Brightness.light,
+          systemNavigationBarColor: Colors.black87,
           systemNavigationBarContrastEnforced: true,
           systemStatusBarContrastEnforced: true),
       child: Container(
@@ -340,14 +341,14 @@ class _MapPageState extends State<MapPage> {
             //     },
             //   ),
             // ),
-            const Positioned(
-                top: 40, // Adjust the position as needed
-                left: 20,
-                right: 20,
-                child: AppBarMap()),
             Positioned(
-                bottom: 70,
-                left: 20,
+                top: 40.h, // Adjust the position as needed
+                left: 20.w,
+                right: 20.w,
+                child: const AppBarMap()),
+            Positioned(
+                bottom: 70.h,
+                left: 20.w,
                 child: Column(
                   children: [
                     CustomPopupMenuButton(
@@ -381,8 +382,8 @@ class _MapPageState extends State<MapPage> {
                   ],
                 )),
             Positioned(
-                bottom: 70,
-                right: 20,
+                bottom: 70.h,
+                right: 20.w,
                 child: Container(
                   decoration: BoxDecoration(
                       color: Colors.white.withOpacity(0.3),

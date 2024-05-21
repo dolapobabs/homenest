@@ -199,7 +199,7 @@ class _AdressSliderState extends State<AdressSlider> {
               color: Colors.grey,
               size: 10.0,
             ),
-          );
+          ).animate().slideX(curve: Curves.fastLinearToSlowEaseIn);
         });
   }
 }
