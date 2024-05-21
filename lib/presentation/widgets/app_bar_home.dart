@@ -37,8 +37,7 @@ class _AppBarHomeState extends State<AppBarHome> {
               child: const CircleAvatar(
                 backgroundColor: Colors.transparent,
                 radius: 20,
-                backgroundImage: NetworkImage(
-                    'https://lh3.googleusercontent.com/a/ACg8ocKFrSekMbIrlC8pNE8eBNDga2VXl3WdzfnJI9OKW-xDak6M-YS5=s576-c-no'),
+                backgroundImage: AssetImage(AppAssets.user),
               ).animate().scale(duration: const Duration(seconds: 2)).fadeIn(),
             ),
           )

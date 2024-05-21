@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:homenest/presentation/widgets/custom_search_bar.dart';
 import 'package:homenest/utils/app_assets.dart';
 import 'package:homenest/utils/app_colors.dart';
@@ -27,18 +28,18 @@ class _AppBarMapState extends State<AppBarMap> {
               controller: TextEditingController(text: 'Saint Petersburg'),
               hintText: 'Enter your search here',
               onSearch: (p0) {},
-            ).animate().slideX(curve: Curves.easeIn).then(delay: 200.ms),
+            ).animate().scale(curve: Curves.easeIn).then(delay: 200.ms),
           ),
           5.horizontalSpace,
-          const Expanded(
+          Expanded(
             flex: 0,
             child: Align(
                 alignment: Alignment.centerRight,
                 child: CircleIcon(
                   color: AppColors.white,
-                  child: Icon(Icons.settings),
+                  child: SvgPicture.asset(AppAssets.settings),
                 )),
-          )
+          ).animate().scale(curve: Curves.easeIn).then(delay: 200.ms)
         ],
       ),
     );

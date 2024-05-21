@@ -53,7 +53,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
             height: 20.r,
             colorFilter: ColorFilter.mode(widget.textColor, BlendMode.srcIn),
           ),
-          5.horizontalSpace,
+          // 5.horizontalSpace,
           Expanded(
             child: TextField(
               controller: _textEditingController,

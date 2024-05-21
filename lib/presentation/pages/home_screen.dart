@@ -10,6 +10,7 @@ import '../../utils/app_colors.dart';
 import '../widgets/app_bar_map.dart';
 import '../widgets/custom_nav_bar.dart';
 import 'home_page.dart';
+import 'map_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,11 +21,17 @@ class HomeScreen extends StatefulWidget {
 
 List<Widget> getWidgetList() {
   return [
-    Container(),
-    Container(),
+    const MapPage(),
+    Container(
+      color: Colors.white,
+    ),
     const HomePage(),
-    Container(),
-    Container(),
+    Container(
+      color: Colors.white,
+    ),
+    Container(
+      color: Colors.white,
+    ),
   ];
 }
 
@@ -55,13 +62,16 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.black)
           : const BoxDecoration(color: Colors.black),
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
+        extendBodyBehindAppBar: true,
         extendBody: true,
-        appBar: CustomAppBar(
-          child: isHome ? const AppBarHome() : const AppBarMap(),
-        ),
+        // appBar: CustomAppBar(
+        //   child: isHome ? const AppBarHome() : const AppBarMap(),
+        // ),
         body: getWidgetList()[_selectedTab],
         bottomNavigationBar: BottomNavBar(
-          backgroundColor: const Color.fromARGB(221, 29, 27, 27),
+          backgroundColor: Colors.black
+              .withOpacity(0.8), // const Color.fromARGB(221, 29, 27, 27),
           splashColor: Colors.grey,
           currentIndex: _selectedTab,
           unselectedItemColor: Colors.black54,

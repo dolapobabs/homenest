@@ -36,7 +36,20 @@ class ImageTile extends StatelessWidget {
           right: 10.0,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [AddressTileSlider(address: address)],
+            children: [
+              FutureBuilder(
+                future: Future.delayed(const Duration(seconds: 4)),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    return AdressSlider(address: address);
+                  } else {
+                    return const SizedBox.shrink();
+                  }
+                },
+              )
+
+              // AddressTileSlider(address: address)
+            ],
           ),
         ),
       ],
@@ -101,5 +114,92 @@ class AddressTileSlider extends StatelessWidget {
             .slideX(duration: 2.seconds, curve: Curves.linear),
       ),
     );
+  }
+}
+
+class AdressSlider extends StatefulWidget {
+  const AdressSlider({super.key, required this.address});
+  final String address;
+
+  @override
+  _AdressSliderState createState() => _AdressSliderState();
+}
+
+class _AdressSliderState extends State<AdressSlider> {
+  bool _isAnimationEnded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return TweenAnimationBuilder<double>(
+        curve: Curves.easeInCubic,
+        tween: Tween<double>(begin: 1, end: MediaQuery.of(context).size.width),
+        duration: const Duration(seconds: 1),
+        onEnd: () {
+          setState(() {
+            _isAnimationEnded = true;
+          });
+        },
+        builder: (context, value, child) {
+          if (value > 60.w) {
+            return SizedBox(
+              width: value,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20.0.r),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(
+                    sigmaX: 10.0,
+                    sigmaY: 10.0,
+                    tileMode: TileMode.mirror,
+                  ),
+                  child: Container(
+                    padding: const EdgeInsets.all(1),
+                    decoration: BoxDecoration(
+                      color: Colors.white70,
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        if (_isAnimationEnded)
+                          Expanded(
+                            child: Center(
+                              child: Text(
+                                widget.address,
+                                textAlign: TextAlign.center,
+                                overflow: TextOverflow.ellipsis,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .normal10Text, // Adjust this as needed
+                              ),
+                            ).animate().slideX(
+                                // duration: 1.seconds,
+                                curve: Curves.fastLinearToSlowEaseIn),
+                          ),
+                        CircleAvatar(
+                          backgroundColor: Colors.orange.shade50,
+                          radius: 20.0.r,
+                          child: const Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.grey,
+                            size: 10.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            );
+          }
+          return CircleAvatar(
+            backgroundColor: Colors.orange.shade50,
+            radius: 20.0.r,
+            child: const Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.grey,
+              size: 10.0,
+            ),
+          );
+        });
   }
 }

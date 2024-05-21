@@ -12,36 +12,37 @@ class OffersWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Expanded(
                 flex: 5,
-                child: Container(
-                  height: 140.h,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColors.orange,
-                  ),
-                  padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text('BUY',
-                          style: Theme.of(context)
-                              .textTheme
-                              .normal12Text
-                              .copyWith(color: AppColors.white)),
-                      20.verticalSpace,
-                      const AnimatedCounter(
-                          duration: Duration(seconds: 4),
-                          value: 1024,
-                          textColor: Colors.white),
-                      Text('offers',
-                          style: Theme.of(context)
-                              .textTheme
-                              .normal12Text
-                              .copyWith(color: AppColors.white)),
-                    ],
+                child: CircleAvatar(
+                  // height: 140.h,
+                  backgroundColor: Colors.orange.withOpacity(0.7),
+                  radius: 80.r,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20.h),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text('BUY',
+                            style: Theme.of(context)
+                                .textTheme
+                                .normal12Text
+                                .copyWith(color: AppColors.white)),
+                        10.verticalSpace,
+                        const AnimatedCounter(
+                            duration: Duration(seconds: 4),
+                            value: 1034,
+                            textColor: Colors.white),
+                        Text('offers',
+                            style: Theme.of(context)
+                                .textTheme
+                                .normal12Text
+                                .copyWith(color: AppColors.white)),
+                      ],
+                    ),
                   ),
                 ))
             .animate()
@@ -52,8 +53,9 @@ class OffersWidget extends StatelessWidget {
         Expanded(
           flex: 5,
           child: Container(
-            height: 140.h,
-            padding: const EdgeInsets.symmetric(vertical: 20),
+            // height: 140.h,
+            height: 160.h,
+            padding: EdgeInsets.symmetric(vertical: 20.h),
             decoration: BoxDecoration(
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.circular(20),
@@ -68,7 +70,7 @@ class OffersWidget extends StatelessWidget {
                         .textTheme
                         .normal12Text
                         .copyWith(color: AppColors.grey)),
-                20.verticalSpace,
+                10.verticalSpace,
                 const AnimatedCounter(
                   duration: Duration(seconds: 4),
                   value: 2122,

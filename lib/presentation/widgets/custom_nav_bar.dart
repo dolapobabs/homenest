@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BottomNavBar extends StatelessWidget {
   final List<NavigationBarItem> items;
@@ -36,6 +37,7 @@ class BottomNavBar extends StatelessWidget {
     final theme = Theme.of(context);
     return BottomAppBar(
       elevation: 0,
+      height: 90.h,
       color: Colors.transparent,
       child: Column(
         children: [
